@@ -7,7 +7,7 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate"); // EJS-mate layout engine for working with EJS templates
 const wrapAsync =  require("./utils/wrapAsync.js")
 const ExpressError =  require("./utils/ExpressError.js");
-const {listingSchema}= require("./schema.js");
+const {listingSchema,reviewSchema}= require("./schema.js");
 const Review = require("./models/review.js");
 
 
@@ -49,7 +49,19 @@ const validateListing =(req,res,next)=>{
   else{
     next();
   }
-}
+};
+
+const validateReview =(req,res,next)=>{
+  let {error}=reviewSchema.validate(req.body);
+  if(error){
+    let error_msg=error.details.map((el)=>el.message).join(",");
+    throw new ExpressError(400,error_msg);
+  }
+  else{
+    next();
+  }
+};
+
 
 //Index Route
 app.get("/listings", wrapAsync(async (req, res) => {
@@ -65,7 +77,7 @@ app.get("/listings/new", (req, res) => {
 //Show Route
 app.get("/listings/:id", wrapAsync(async (req, res) => {
   let { id } = req.params;
-  const listing = await Listing.findById(id);
+  const listing = await Listing.findById(id).populate("reviews");
   res.render("listings/show.ejs", { listing });
 }));
 
@@ -109,7 +121,7 @@ app.delete("/listings/:id", wrapAsync(async (req, res) => {
 
 // reviews
 //post route
-app.post("/listings/:id/reviews",async(req,res)=>{
+app.post("/listings/:id/reviews", validateReview, wrapAsync(async(req,res)=>{
 let listing = await Listing.findById(req.params.id);
 let newReview = new Review(req.body.review);
 
@@ -117,10 +129,9 @@ listing.reviews.push(newReview);
 await newReview.save();
 await listing.save();
 
-console.log("new review saved");
-res.send("new review saved");
+res.redirect(`/listings/${listing._id}`);
 
-});
+}));
 
 
 // app.get("/testListing", async (req, res) => {
@@ -144,7 +155,7 @@ res.send("new review saved");
 // );
 
 app.all("*", (req, res, next) => {
-  console.log("404 error triggered"); // Log to confirm this is hit
+  // Log to confirm this is hit
   next(new ExpressError(404, "Page Not Found"));
 });
 
