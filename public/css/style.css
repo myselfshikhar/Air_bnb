@@ -1,0 +1,128 @@
+body{
+  font-family:Verdana, Geneva, Tahoma, sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.container
+{
+  flex: 1;
+}
+
+.navbar{
+    height: 5rem;
+    background-color:#f8f8f8;
+}
+
+.fa-compass{
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link{
+    color: #222222 !important;
+}
+
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-socials,
+.f-info-brand
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.f-info{
+    text-align: center;
+    display:8rem;
+    background-color: #aaaaaa;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+.f-info-socials i{
+    font-size: 1.2rem;
+    margin-right: 2rem;
+}
+
+
+.card {
+    border: none !important; /* Remove border */
+    margin-bottom: 2rem; /* Space between cards */
+    /* border-radius: 1rem; Rounded corners for the card */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
+  }
+
+  .card-img-top {
+    border-radius: 1rem; /* Rounded corners for the card */
+    width: 100% !important; /* Full width */
+    height: 15rem; /* Fixed height */
+    object-fit: cover !important; /* Maintain aspect ratio */
+    transition: transform 0.3s ease; /* Smooth transition for image scaling */
+  }
+
+  .card-body {
+    padding: 0rem; /* Add padding for card body */
+    background-color: #fff; /* White background for better contrast */
+  }
+  
+  .card-text p {
+    font-weight: 400 !important; /* Normal weight for text */
+    color: #333; /* Darker color for better readability */
+  }
+  
+  .listing-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from parent */
+    border-radius:8px 8px 8px 8px;
+  }
+
+
+/* Card Effect */
+.card-img-overlay {
+  opacity: 0; /* Initial opacity */
+  transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+
+.card:hover .card-img-overlay {
+  opacity: 0.2; /* Show overlay on hover */
+  background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
+}
+
+.card:hover {
+  transform: scale(1.01); /* Slightly enlarge card on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+
+.add-btn {
+ 
+  background-color: #fe424d !important;
+  border: none !important;
+}
+
+/* Edit Page */
+.edit-btn{
+  background-color: #fe424d !important;
+  border: none !important;
+}
+
+.show-img{
+  height: 30vh;
+  
+}

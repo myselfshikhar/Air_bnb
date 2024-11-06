@@ -1,0 +1,66 @@
+<% layout("/layouts/boilerplate") %>
+
+<!-- Main Container -->
+<div class="row mt-3">
+  <!-- Heading -->
+  <div class="col-8 offset-3">
+    <h3><%= listing.title %></h3>
+  </div>
+
+  <!-- Card for Listing Details -->
+  <div class="card col-6 offset-3 form-border">
+    <!-- Listing Image -->
+    <img 
+      src="<%= listing.image %>" 
+      class="card-img-top show-img" 
+      alt="listing_image"
+      onerror="this.src='https://via.placeholder.com/600x400?text=No+Image+Available';" 
+    />
+    <br>
+
+    <!-- Card Body for Listing Information -->
+    <div class="card-body">
+      <ul class="list-unstyled">
+        <!-- <li><b>Title:</b> <%= listing.title %></li> -->
+        <li><b>Description:</b> <%= listing.description %></li>
+        <li><b>Price:</b> &#8377; <%= listing.price.toLocaleString("en-IN") %></li>
+        <li><b>Location:</b> <%= listing.location %></li>
+        <li><b>Country:</b> <%= listing.country %></li>
+      </ul>
+    </div>
+    <div class="btns  d-flex align-items-center mt-3 button-container">
+      <!-- Edit Button -->
+      <a style="margin-left: 4px; margin-right: 6px;" href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1.5 offset-3">Edit</a>
+  
+      <!-- Delete Button with form -->
+      <form id="deleteForm" method="POST" action="/listings/<%= listing._id %>?_method=DELETE" class="mb-0">
+        <button style="margin-left: 4px; margin-right: 4px;" class="btn btn-danger col-12 offset-5" id="deleteButton">Delete</button>
+
+
+        <!-- <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
+          <button type="submit" class="btn btn-danger">Delete</button>
+          
+          In an HTML form, a button with type="button" does not trigger form submission. It only triggers JavaScript if there's an event attached. That's why your form isn't being submitted when you click the delete button.
+      </form> -->
+      
+      </form>
+    </div>
+    </div>
+    <div class="col-8 offset-3 mb-3">
+      <hr/>
+      <h4>Leave a Review</h4>
+      <form action="/listings/<%= listing.id %> /reviews" method="post">
+        <div class="mb-3 mt-3">
+          <label for="rating" class="form-label">Rating</label>
+          <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-range">
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="comment" class="form-label">Comments</label>
+          <textarea name="review[comment]" id="Comment" cols="30" rows="5" class="form-control"></textarea>
+        </div>
+        <button class="btn btn-outline-dark mb-3">submit</button>
+      </form>
+    </div>
+</div> 
+
+
