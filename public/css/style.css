@@ -126,3 +126,9 @@ body{
   height: 30vh;
   
 }
+
+
+#map {
+  height:400px;
+  width: 80vh;
+  }

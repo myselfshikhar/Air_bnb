@@ -5,7 +5,7 @@
     <h3 style="font-weight: 400;">Edit Listing</h3>
     <!-- Adding method override to send PUT request -->
     <div class="form-border">
-    <form method="POST" novalidate class="needs-validation" action="/listings/<%= listing._id %>?_method=PUT" onsubmit="return validateEditForm()">
+    <form method="POST" novalidate class="needs-validation" action="/listings/<%= listing._id %>?_method=PUT" onsubmit="return validateEditForm()" enctype="multipart/form-data">
       
       <!-- Title Field -->
       <div class="mb-3">
@@ -34,16 +34,26 @@
       </div>
 
       <!-- Image URL Field -->
+
+      <div class="mb-3" style="width: 200px; height: 150px; overflow: hidden;">
+        <label for="original_listing" class="form-label">Original Listing image</label><br>
+        <img src="<%= originalImageUrl %>" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+
+    <!-- <div class="mb-3">
+      Original Listing Image
+      <img src="<%= originalImageUrl %>" />
+     </div> -->
+    
       <div class="mb-3">
         <label for="image" class="form-label">Image Link</label>
         <input
           id="image"
           name="listing[image]"
           placeholder="Enter image URL/Link"
-          type="text"
+          type="file"
           class="form-control"
-          value="<%= listing.image %>"
-          required />
+           />
       </div>
       
       <div class="row">

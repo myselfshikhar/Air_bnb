@@ -6,7 +6,7 @@
     
     <!-- Form to create a new listing -->
     <div class="form-border"> <!-- Added div for border and hover effect -->
-      <form method="POST" action="/listings" novalidate class="needs-validation" onsubmit="return setDefaultImage()">
+      <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data" onsubmit="return setDefaultImage()">
         
         <!-- Title Field -->
         <div class="mb-3">
@@ -39,13 +39,13 @@
         
         <!-- Image URL Field -->
         <div class="mb-3">
-          <label for="image" class="form-label">Image Link</label>
+          <label for="image" class="form-label">Upload listing Image Link</label>
           <input
             id="image"
             name="listing[image]"
-            placeholder="Enter image URL/Link"
-            type="text" 
-            class="form-control"
+            type="file" 
+            class="form-control" 
+            required
           />
         </div>
     
