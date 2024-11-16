@@ -51,7 +51,7 @@ app.use(express.static(path.join(__dirname, "/public"))); // Serve static files 
 const store = MongoStore.create({
   mongoUrl: dburl,
   crypto: {
-    secret:"mysupersecretcode",
+    secret:process.env.SECRET,
   },
   touchAfter: 24 * 3600,// time period in seconds
   
@@ -66,7 +66,7 @@ const store = MongoStore.create({
 
 const sessionOptions = {
   store,
-  secret: "mysupersecretcode",
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
   cookie: {
@@ -76,9 +76,9 @@ const sessionOptions = {
   },
 };
 
-// app.get("/", (req, res) => {
-//   res.send("Hi, I am root");
-// });
+app.get("/",(req,res)=>{
+  res.redirect("/listings");
+})
 
 
 
