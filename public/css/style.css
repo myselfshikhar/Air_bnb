@@ -1,134 +1,390 @@
 body{
-  font-family:Verdana, Geneva, Tahoma, sans-serif !important;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  font-family: "Plus Jakarta Sans", sans-serif 
+  !important;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
 }
-.container
-{
-  flex: 1;
+.container{
+  flex:1;
 }
-
+/* navbar */
 .navbar{
-    height: 5rem;
-    background-color:#f8f8f8;
+  height:5rem;
+  background-color:white;
 }
-
 .fa-compass{
-    color: #fe424d;
-    font-size: 2rem;
+color:#fe424d;
+  font-size:2rem;
 }
 
 .nav-link{
-    color: #222222 !important;
+ color:#222222 !important;
 }
 
-
+/* footer */
 .f-info-links a{
-    text-decoration: none;
-    color: #222222;
+  text-decoration:none;
+  color:#222222;
+
 }
 .f-info-links a:hover{
-    text-decoration: underline;
+text-decoration:underline;
 }
-
-.f-info-links,
-.f-info-socials,
-.f-info-brand
-{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+.f-info-links,.f-info-socials,.f-info-brand{
+  width:100%;
+display:flex;
+align-items:center;
+justify-content:center;
 }
+.f-info-socials{
 
-
-.f-info{
-    text-align: center;
-    display:8rem;
-    background-color: #aaaaaa;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: space-evenly;
+font-size:1.2rem;
+margin-right:2rem;
+margin-top: 2rem;
 }
-
 .f-info-socials i{
-    font-size: 1.2rem;
-    margin-right: 2rem;
+margin-right:1rem;
+}
+.f-info{
+  text-align:center;
+  height:8rem;
+  background-color:#ebebeb;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:space-evenly;
+  margin-top: 3rem;
+}
+
+/* cards */
+.listing-card{
+  border:none !important;
+  margin:5rem  !important;
+}
+
+/* Card Styles */
+.card {
+  border: none !important; /* Remove border */
+  margin-bottom: 2rem; /* Space between cards */
+  margin-left: 2rem;
+  border-radius: 1rem; /* Rounded corners for the card */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
+  padding: 1rem;
+}
+
+.card-img-top {
+  width: 100% !important; /* Full width */
+  height: 50%; /* Fixed height */
+  object-fit:cover !important; /* Maintain aspect ratio */
+  transition: transform 0.3s ease; /* Smooth transition for image scaling */
+}
+
+.card-body {
+  padding: 1rem; /* Add padding for card body */
+  background-color: #fff; /* White background for better contrast */
+}
+
+.card-text p {
+  font-weight: 300 !important; /* Normal weight for text */
+  color: #2c3139; /* Darker color for better readability */
+}
+
+@media (max-width: 770px) {
+  .card-text p {
+    font-size: 8px; /* Smaller font size for smaller screens */
+  }
+}
+
+.row-review {
+  display: flex;
+  flex-wrap: wrap; /* Ensures cards wrap to the next row on smaller screens */
+  justify-content: center; /* Centers the cards horizontally */
+  gap: 20px; /* Adds spacing between cards */
+}
+
+.card-review{
+  flex: 1 1 calc(45% - 20px); /* Each card takes up roughly 45% of the width, with spacing accounted */
+  max-width: 45%; /* Prevents cards from stretching too wide */
+  background-color: #fff;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card-like effect */
+  overflow: hidden; /* Ensures content stays within rounded corners */
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effect */
+}
+
+.card-review:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.card-body-review {
+  padding: 15px;
+}
+
+.card-title-review {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card-text-review {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.btn-danger {
+  width: 100%; /* Full-width button for smaller screens */
+  font-size: 0.9rem;
+  padding: 8px;
+}
+
+@media (max-width: 768px) {
+  .starability-result {
+    font-size: 0.8rem; /* Reduce star size on smaller screens */
+  }
+
+  .card-review {
+    flex: 1 1 100%; /* Each card takes up full width on smaller screens */
+    max-width: 100%;
+  }
+
+  .card-title-review {
+    font-size: 1rem;
+  }
+
+  .card-text-review {
+    margin-top: 10px;
+  font-size: 0.9rem;
+  overflow-wrap: break-word;
+  }
 }
 
 
-.card {
-    border: none !important; /* Remove border */
-    margin-bottom: 2rem; /* Space between cards */
-    /* border-radius: 1rem; Rounded corners for the card */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
-  }
 
-  .card-img-top {
-    border-radius: 1rem; /* Rounded corners for the card */
-    width: 100% !important; /* Full width */
-    height: 15rem; /* Fixed height */
-    object-fit: cover !important; /* Maintain aspect ratio */
-    transition: transform 0.3s ease; /* Smooth transition for image scaling */
-  }
-
-  .card-body {
-    padding: 0rem; /* Add padding for card body */
-    background-color: #fff; /* White background for better contrast */
-  }
-  
-  .card-text p {
-    font-weight: 400 !important; /* Normal weight for text */
-    color: #333; /* Darker color for better readability */
-  }
-  
-  .listing-link {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Inherit color from parent */
-    border-radius:8px 8px 8px 8px;
-  }
-
+/* Listing Link */
+.listing-link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent */
+  border-radius:8px 8px 8px 8px;
+}
 
 /* Card Effect */
 .card-img-overlay {
-  opacity: 0; /* Initial opacity */
-  transition: opacity 0.3s ease; /* Smooth transition for opacity */
+  opacity: 0;
+  transition: opacity 0.9s ease, transform 0.9s ease, box-shadow 0.3s ease;
+  text-align: center;
+  border: 2px solid transparent; /* Default transparent border */
+  
 }
 
-.card:hover .card-img-overlay {
-  opacity: 0.2; /* Show overlay on hover */
+.card-img-overlay:hover {
+  opacity: 1;
+  transform: scale(1); /* No zoom on hover */
+  color: #cf1010;
+  padding: 0rem;
+  border-radius: 10px;
+  border: 2px solid #000; /* Visible border on hover */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Subtle box shadow */
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+}
+
+
+
+.card:hover {  
+  opacity: 1; /* Show overlay on hover */
   background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
-}
-
-.card:hover {
   transform: scale(1.01); /* Slightly enlarge card on hover */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+  padding: 1.5rem;
+  transition: opacity 0.9s ease, transform 0.9s ease, box-shadow 0.3s ease;
+
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+  .card {
+    margin-bottom: 1.5rem; /* Reduce margin for small screens */
+  }
+  
+  .card-img-top {
+    height: 12rem; /* Adjust image height for smaller screens */
+  }
 }
 
 
-.add-btn {
- 
-  background-color: #fe424d !important;
-  border: none !important;
-}
+/*New Page*/
 
 /* Edit Page */
 .edit-btn{
-  background-color: #fe424d !important;
+  background-color: #fe424d;
   border: none !important;
 }
 
+
+/* Show Page */
+
+/* .show-img{
+  height: 100vh;
+  
+} */
+
+
+
+/* Style for the form border and hover effect */
+.form-border {
+  border: 2px solid #ccc; /* Change color as needed */
+  border-radius: 8px; /* Rounded corners */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for effects */
+  padding: 20px; /* Add padding for better spacing */
+  background-color: #f9f9f9; /* Light background for better contrast */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Hover effect for the form */
+.form-border:hover {
+  border-color: #ff4747; /* Change border color on hover */
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5); /* Add shadow effect on hover */
+}
+
+/* Style for the labels */
+.form-label {
+  font-weight: bold; /* Make labels bold */
+  color: #333; /* Darker color for better readability */
+}
+
+/* Improved input fields */
+.form-control {
+  border-radius: 5px; /* Slightly rounded corners for inputs */
+  border: 1px solid #ccc; /* Light border for input fields */
+  transition: border-color 0.2s; /* Smooth transition on focus */
+}
+
+/* Input focus effect */
+.form-control:focus {
+  border-color: #fa4c4c; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(231, 7, 7, 0.5); /* Add shadow on focus */
+}
+
+/* Improved button styles */
+
+
+
+/*edit.ejs style*/
+/* Form Container Style */
+.form-border {
+  border: 2px solid #ccc; /* Change color as needed */
+  border-radius: 8px; /* Rounded corners */
+  transition:  box-shadow 0.3s ease, transform 0.4s ease; /* Smooth transition */
+
+  padding: 20px; /* Add padding for better spacing */
+  background-color: #f9f9f9; /* Light background for better contrast */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Hover effect for the form */
+.form-border:hover {
+  border-color: #ff4747; /* Change border color on hover */
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5); /* Add shadow effect on hover */
+}
+
+/* Style for the labels */
+.form-label {
+ 
+  color: #333; /* Darker color for better readability */
+  margin-bottom: 5px; /* Spacing below labels */
+}
+
+/* Improved input fields */
+.form-control {
+  border-radius: 5px; /* Slightly rounded corners for inputs */
+  border: 1px solid #ccc; /* Light border for input fields */
+  transition: border-color 0.2s; /* Smooth transition on focus */
+  padding: 10px; /* Padding for input fields */
+  width: 100%; /* Full width */
+}
+
+/* Input focus effect */
+.form-control:focus {
+  border-color: #fa4c4c; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(231, 7, 7, 0.5); /* Add shadow on focus */
+  outline: none; /* Remove default outline */
+}
+
+/* Improved button styles */
+
+/* Button Styles */
+.add-btn {
+ 
+  color: white; /* Button text color */
+  padding: 10px 20px; /* Add padding for better size */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease, opacity 0.4s ease, box-shadow 0.5s ease; /* Smooth transition */
+  display: inline-block; /* Ensure it behaves like a block element */
+  text-align: center; /* Center text */
+  font-size: 1rem; /* Font size for the button */
+}
+
+/* Hover Effect */
+.add-btn:hover {
+  background-color: #fe424d !important; /* Change background on hover */
+  opacity: 0.8; /* Slightly reduce opacity for a softer look */
+  box-shadow: 0 4px 15px rgba(254, 66, 77, 0.5); /* Add shadow effect on hover */
+  transform: scale(1.01); /* Slightly enlarge button on hover */
+}
+
+/* Centering Button */
+.button-container {
+  display: flex; /* Use Flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  margin-top: 20px; /* Space from the top */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+  .add-btn {
+    width: 100%; /* Full width on small screens */
+  }
+}
+
+
+
+/* new page */
+/* .add-btn{
+  background-color:#fe424d !important;
+  
+  border:none !important;
+} */
+/* edit page */
+.edit-btn{
+  background-color:#fe424d !important;
+  
+  border:none !important;
+}
+
+
 .show-img{
-  height: 30vh;
+  height:50vh;
+}
+
+
+.show-card{
+  padding-left:0;
+  padding-right:0;
   
 }
 
 
+.btns{
+  display:flex;
+}
+
+
+/* Map */
 #map {
-  height:400px;
-  width: 80vh;
-  }
+height:400px;
+width: 80vh;
+}

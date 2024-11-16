@@ -77,6 +77,15 @@
   display:flex;
   align-items:center;
 }
+
+#flexSwitchCheckDefault:checked {
+    background-color: #fe424d;
+    border-color: #fe424d;
+}
+#flexSwitchCheckDefault:unchecked {
+    background-color: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
+}
   </style>
       <div id="filters">
 <div class="filter">
@@ -131,6 +140,7 @@
     <label class="form-check-label" for="flexSwitchCheckDefault">Display total after Taxes</label>
   </div>
 </div>
+
      </div>
       
       <div class="row row-cols-lg-3  row-cols-md-2 row-cols-sm-1 mt-3">
@@ -138,7 +148,7 @@
         <a href="/listings/<%=listing._id%>" class="listing-link">
     <div class="card col listing-card" style="width: 20rem">
       <img class="card-img-top" src="<%= listing.image.url %>" alt="listing_image" style="height: 20rem"/>
-      <div class="card-img-overlay">abcd</div>
+      <div class="card-img-overlay"><%= listing.title %></div>
       <div class="card-body">
         <p class="card-text">
           <b><%= listing.title %></b><br>

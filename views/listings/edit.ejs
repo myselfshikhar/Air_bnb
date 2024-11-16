@@ -19,8 +19,10 @@
           value="<%= listing.title %>"
           pattern="^[A-Za-z '\s]+$"
           required />
-        <div class="invalid-feedback">Please Enter a valid Title</div>
-      </div>
+          <div class="valid-feedback">Title looks Good</div>   
+          <div class="invalid-feedback">Please enter title  </div>
+
+        </div>
 
       <!-- Description Field -->
       <div class="mb-3">
@@ -31,6 +33,7 @@
           class="form-control"
           required><%= listing.description %></textarea>
         <div class="invalid-feedback">Please enter a short description</div>
+        
       </div>
 
       <!-- Image URL Field -->

@@ -94,7 +94,7 @@ module.exports.index = async (req, res) => {
         let { id } = req.params;
         let deletedListing = await Listing.findByIdAndDelete(id);
         console.log(deletedListing);
-        req.flash("success"," Listing Created deleted");
+        req.flash("success"," Listing deleted");
     
         res.redirect("/listings");
       };

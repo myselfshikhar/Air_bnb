@@ -91,30 +91,33 @@
         </div>
     </form>
     <% } %>
+
+    <h4>All Reviews</h4>
     
     <% if (listing.reviews && listing.reviews.length > 0) { %>
-        <div class="row">
-            <h4>All Reviews</h4>
+        <div class="row-review">
+            
+            <br>
             <% for (review of listing.reviews) { %>
-                <div class="card col-5 mb-3 ms-3">
-                    <div class="card-body">
+                <div class="card-review col-5 mb-3 ms-3">
+                    <div class="card-body-review">
                         <% if (review.author) { %>
-                            <h5 class="card-title">@<%= review.author.username %></h5>
+                            <h5 class="card-title-review">@<%= review.author.username %></h5>
                         <% } else { %>
 
-                            <h5 class="card-title">Unknown Author</h5>
+                            <h5 class="card-title-review">Unknown Author</h5>
                         <% } %>
                         
-                        <p class="starability-result card-text" data-rating=<%= review.rating %>>
+                        <p class="starability-result card-text-review" data-rating=<%= review.rating %>>
                             Rated: 3 stars
                           </p>
-                        <p class="card-text"><%= review.comment %></p>
+                        <p class="card-text-review"><%= review.comment %></p>
                        
 
                     </div>
                     <% if (currUser && review.author && review.author._id.equals(currUser._id)) { %>
                     <form class="mb-3" method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
-                        <button class="btn btn-dark">Delete</button>
+                        <button class="btn btn-danger">Delete</button>
                     </form>
                     <% } %>
                 </div>
